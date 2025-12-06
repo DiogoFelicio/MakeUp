@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Alice MakeUp - Serviços de Maquilhagem</title>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2v6M12 18v4M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M2 12h6M18 12h4M4.93 19.07l4.24-4.24M14.83 9.17l4.24-4.24"/>
+                </svg>
+                <span>Alice MakeUp</span>
+            </div>
+            
+            <nav>
+                <button onclick="scrollToSection('inicio')">Início</button>
+                <button onclick="scrollToSection('servicos')">Serviços</button>
+                <button onclick="scrollToSection('galeria')">Galeria</button>
+                <button onclick="scrollToSection('sobre')">Sobre</button>
+                <button onclick="scrollToSection('contato')">Contato</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="inicio" class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <h1>Realce a Sua Beleza Natural</h1>
+                    <p style="color: #666;">
+                        Maquilhagem profissional para todos os momentos especiais da sua vida. 
+                        Com técnicas modernas e produtos de alta qualidade, crio o look perfeito para você.
+                    </p>
+                    <button class="btn-primary" onclick="scrollToSection('contato')">
+                        Agendar Consulta
+                    </button>
+                </div>
+                
+                <div>
+                    <img src="https://images.unsplash.com/photo-1698181842119-a5283dea1440?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWtldXAlMjBhcnRpc3QlMjBiZWF1dHl8ZW58MXx8fHwxNzY0OTQ2MzkwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" 
+                         alt="Maquilhagem profissional" 
+                         class="hero-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Divider -->
+        <div class="section-divider">
+            <div class="divider-content">
+                <div class="divider-line"></div>
+                <svg class="divider-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+                    <path d="M19 3v4"/>
+                    <path d="M21 5h-4"/>
+                </svg>
+                <div class="divider-line right"></div>
+            </div>
+        </div>
+
+        <!-- Services Section -->
+        <section id="servicos" class="container bg-gray">
+            <div class="section-header">
+                <h2>Serviços</h2>
+                <p class="section-subtitle">
+                    Oferecemos uma variedade de serviços de maquilhagem profissional para atender todas as suas necessidades
+                </p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                    </svg>
+                    <h3>Maquilhagem de Noiva</h3>
+                    <p style="color: #666; margin: 1rem 0;">O look perfeito para o dia mais especial da sua vida, com produtos de longa duração.</p>
+                    <p class="service-price">A partir de 150€</p>
+                </div>
+
+                <div class="service-card">
+                    <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+                        <path d="M19 3v4"/>
+                        <path d="M21 5h-4"/>
+                    </svg>
+                    <h3>Maquilhagem Social</h3>
+                    <p style="color: #666; margin: 1rem 0;">Para festas, eventos e ocasiões especiais. Elegante e sofisticada.</p>
+                    <p class="service-price">A partir de 80€</p>
+                </div>
+
+                <div class="service-card">
+                    <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    <h3>Maquilhagem de Grupo</h3>
+                    <p style="color: #666; margin: 1rem 0;">Para grupos de amigas, madrinhas e familiares. Descontos especiais.</p>
+                    <p class="service-price">Sob consulta</p>
+                </div>
+
+                <div class="service-card">
+                    <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                        <line x1="16" x2="16" y1="2" y2="6"/>
+                        <line x1="8" x2="8" y1="2" y2="6"/>
+                        <line x1="3" x2="21" y1="10" y2="10"/>
+                    </svg>
+                    <h3>Cursos e Workshops</h3>
+                    <p style="color: #666; margin: 1rem 0;">Aprenda técnicas profissionais de maquilhagem em sessões individuais ou em grupo.</p>
+                    <p class="service-price">A partir de 100€</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Divider -->
+        <div class="section-divider">
+            <div class="divider-content">
+                <div class="divider-line"></div>
+                <svg class="divider-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+                    <path d="M19 3v4"/>
+                    <path d="M21 5h-4"/>
+                </svg>
+                <div class="divider-line right"></div>
+            </div>
+        </div>
+
+        <!-- Gallery Section -->
+        <section id="galeria" class="container">
+            <div class="section-header">
+                <h2>Galeria</h2>
+                <p class="section-subtitle">
+                    Alguns dos trabalhos realizados com muito carinho e dedicação
+                </p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/flagged/photo-1551854716-8b811be39e7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmlkYWwlMjBtYWtldXB8ZW58MXx8fHwxNzY0OTg2NjczfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" 
+                         alt="Maquilhagem de noiva">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1679881026334-804402493ce8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBtYWtldXB8ZW58MXx8fHwxNzY1MDAyOTY1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" 
+                         alt="Maquilhagem profissional">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1602260395251-0fe691861b56?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWF1dHklMjBjb3NtZXRpY3N8ZW58MXx8fHwxNzY0OTc4OTk2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" 
+                         alt="Cosméticos de beleza">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1698181842119-a5283dea1440?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWtldXAlMjBhcnRpc3QlMjBiZWF1dHl8ZW58MXx8fHwxNzY0OTQ2MzkwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" 
+                         alt="Trabalho de maquilhagem">
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Divider -->
+        <div class="section-divider">
+            <div class="divider-content">
+                <div class="divider-line"></div>
+                <svg class="divider-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+                    <path d="M19 3v4"/>
+                    <path d="M21 5h-4"/>
+                </svg>
+                <div class="divider-line right"></div>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <section id="sobre" class="container bg-gray">
+            <div class="about-grid">
+                <div class="about-content">
+                    <h2>Sobre Mim</h2>
+                    <p style="color: #666;">
+                        Com mais de 10 anos de experiência no mundo da maquilhagem, dedico-me a realçar a beleza 
+                        única de cada cliente. Especializada em maquilhagem de noiva e social, utilizo apenas produtos 
+                        de alta qualidade para garantir resultados impecáveis.
+                    </p>
+                    <p style="color: #666;">
+                        A minha missão é fazer com que se sinta confiante e radiante em cada momento especial da sua vida.
+                    </p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="8" r="6"/>
+                                <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+                            </svg>
+                            <span style="color: #374151;">Certificação Profissional</span>
+                        </div>
+                        <div class="feature-item">
+                            <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                            <span style="color: #374151;">+10 Anos de Experiência</span>
+                        </div>
+                        <div class="feature-item">
+                            <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                            </svg>
+                            <span style="color: #374151;">+500 Clientes Satisfeitas</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <img src="https://images.unsplash.com/photo-1679881026334-804402493ce8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBtYWtldXB8ZW58MXx8fHwxNzY1MDAyOTY1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" 
+                         alt="Sobre a maquilhadora" 
+                         class="about-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Divider -->
+        <div class="section-divider">
+            <div class="divider-content">
+                <div class="divider-line"></div>
+                <svg class="divider-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+                    <path d="M19 3v4"/>
+                    <path d="M21 5h-4"/>
+                </svg>
+                <div class="divider-line right"></div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <section id="contato" class="container">
+            <div class="section-header">
+                <h2>Contacto</h2>
+                <p class="section-subtitle">
+                    Entre em contacto para agendar uma consulta ou esclarecer dúvidas
+                </p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                        <div>
+                            <h3>Telefone</h3>
+                            <p style="color: #666;">+351 912 345 678</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="16" x="2" y="4" rx="2"/>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                        </svg>
+                        <div>
+                            <h3>Email</h3>
+                            <p style="color: #666;">contato@maquilhagempro.pt</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        <div>
+                            <h3>Localização</h3>
+                            <p style="color: #666;">Lisboa, Portugal</p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 style="margin-bottom: 0.75rem;">Redes Sociais</h3>
+                        <div class="social-links">
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link">
+                                <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                                </svg>
+                            </a>
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link">
+                                <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="schedule-card">
+                    <h3 style="margin-bottom: 1rem;">Horário de Atendimento</h3>
+                    <div class="schedule-item">
+                        <span style="color: #666;">Segunda - Sexta</span>
+                        <span>9h - 19h</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span style="color: #666;">Sábado</span>
+                        <span>10h - 18h</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span style="color: #666;">Domingo</span>
+                        <span>Fechado</span>
+                    </div>
+                    <p class="schedule-note">* Atendimento mediante agendamento prévio</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2v6M12 18v4M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M2 12h6M18 12h4M4.93 19.07l4.24-4.24M14.83 9.17l4.24-4.24"/>
+                </svg>
+                <span>Maquilhagem Pro</span>
+            </div>
+            <p class="footer-text">© 2025 Maquilhagem Pro. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
