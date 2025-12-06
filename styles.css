@@ -197,7 +197,7 @@
         }
 
         .service-card:hover {
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
         }
 
         .service-icon {
