@@ -1,341 +1,602 @@
 <!DOCTYPE html>
 <html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Alice MakeUp - Serviços de Maquilhagem</title>
-</head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="header-container">
-            <div class="logo">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2v6M12 18v4M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M2 12h6M18 12h4M4.93 19.07l4.24-4.24M14.83 9.17l4.24-4.24"/>
-                </svg>
-                <span>Alice MakeUp</span>
-            </div>
-            
-            <nav>
-                <button onclick="scrollToSection('inicio')">Início</button>
-                <button onclick="scrollToSection('servicos')">Serviços</button>
-                <button onclick="scrollToSection('galeria')">Galeria</button>
-                <button onclick="scrollToSection('sobre')">Sobre</button>
-                <button onclick="scrollToSection('contato')">Contato</button>
-            </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Acesso ao Coração
+    </title>
+    <style>
+      * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: &#39;Georgia&#39;, serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .login-page, .menu-page {
+            padding: 60px 40px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            color: #333;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #764ba2;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(118, 75, 162, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .error-message {
+            background: #fee;
+            color: #c33;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            border-left: 4px solid #c33;
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        /* Menu Page Styles */
+        .menu-page {
+            background: linear-gradient(180deg, #fff5f5 0%, #ffe8e8 100%);
+        }
+
+        .menu-page h1 {
+            color: #c33;
+        }
+
+        .date-banner {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .menu-section {
+            margin-bottom: 30px;
+        }
+
+        .menu-section h3 {
+            color: #764ba2;
+            margin-bottom: 15px;
+            font-size: 20px;
+            border-bottom: 2px solid #764ba2;
+            padding-bottom: 8px;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            margin-bottom: 10px;
+            background: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .menu-item:hover {
+            transform: translateX(5px);
+            border-color: #764ba2;
+        }
+
+        .menu-item input[type=&#34;checkbox&#34;] {
+            width: 20px;
+            height: 20px;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+
+        .menu-item label {
+            margin: 0;
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .menu-item.selected {
+            background: #f0e6ff;
+            border-color: #764ba2;
+        }
+
+        .heart {
+            display: inline-block;
+            color: #ff6b6b;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .submit-choices {
+            margin-top: 30px;
+        }
+
+        .choices-summary {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border-left: 4px solid #764ba2;
+        }
+
+        .choices-summary h4 {
+            color: #764ba2;
+            margin-bottom: 10px;
+        }
+
+        .choices-summary ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .choices-summary li {
+            padding: 5px 0;
+            color: #333;
+        }
+
+        .choices-summary li:before {
+            content: &#34;♥ &#34;;
+            color: #ff6b6b;
+            margin-right: 8px;
+        }
+
+        .photo-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #ff6b6b;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .success-message {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+            animation: successAppear 0.6s ease-out, float 3s ease-in-out infinite;
+        }
+
+        .success-message h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .success-message p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .hearts-animation {
+            font-size: 40px;
+            margin-bottom: 15px;
+            animation: heartsFloat 2s ease-in-out infinite;
+        }
+
+        @keyframes successAppear {
+            0% {
+                opacity: 0;
+                transform: scale(0.8) translateY(20px);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes heartsFloat {
+            0%, 100% {
+                transform: scale(1) rotate(0deg);
+            }
+            25% {
+                transform: scale(1.2) rotate(-5deg);
+            }
+            75% {
+                transform: scale(1.2) rotate(5deg);
+            }
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #ff6b6b;
+            position: absolute;
+            animation: confettiFall 3s linear;
+        }
+
+        @keyframes confettiFall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Login Page -->
+      <div id="loginPage" class="login-page">
+        <h1>
+          <span class="heart">          ♥
+</span>
+          Acesso ao Coração
+          <span class="heart">          ♥
+</span>
+        </h1>
+        <p class="subtitle">
+          Entre com suas credenciais
+        </p>
+        <div id="errorMessage" class="error-message hidden">
         </div>
-    </header>
-
-    <!-- Main Content -->
-    <main>
-        <!-- Hero Section -->
-        <section id="inicio" class="container">
-            <div class="hero-grid">
-                <div class="hero-content">
-                    <h1>Realce a Sua Beleza Natural</h1>
-                    <p style="color: #666;">
-                        Maquilhagem para todos os momentos especiais da sua vida. 
-                        Com técnicas modernas e produtos de alta qualidade, crio o look perfeito para você.
-                    </p>
-                    <button class="btn-primary" onclick="scrollToSection('contato')">
-                        Agendar Consulta
-                    </button>
-                </div>
-                
-                <div>
-                    <img src="https://images.unsplash.com/photo-1698181842119-a5283dea1440?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWtldXAlMjBhcnRpc3QlMjBiZWF1dHl8ZW58MXx8fHwxNzY0OTQ2MzkwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" 
-                         alt="Maquilhagem profissional" 
-                         class="hero-image">
-                </div>
-            </div>
-        </section>
-
-        <!-- Section Divider -->
-        <div class="section-divider">
-            <div class="divider-content">
-                <div class="divider-line"></div>
-                <svg class="divider-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
-                    <path d="M19 3v4"/>
-                    <path d="M21 5h-4"/>
-                </svg>
-                <div class="divider-line right"></div>
-            </div>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="nome">
+              Nome
+            </label>
+            <input type="text" id="nome" name="nome" required="" autocomplete="off" />
+          </div>
+          <div class="form-group">
+            <label for="password">
+              Password
+            </label>
+            <input type="password" id="password" name="password" required="" autocomplete="off" />
+          </div>
+          <button type="submit">
+            Entrar
+          </button>
+        </form>
+      </div>
+      <!-- Menu Page -->
+      <div id="menuPage" class="menu-page hidden">
+        <div class="photo-container">
+          <img src="ines.jpg" alt="Foto da Inês" class="profile-photo" />
         </div>
-
-        <!-- Services Section -->
-        <section id="servicos" class="container bg-gray">
-            <div class="section-header">
-                <h2>Serviços</h2>
-                <p class="section-subtitle">
-                    Oferecemos uma variedade de serviços de maquilhagem profissional para atender todas as suas necessidades
-                </p>
-            </div>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
-                    </svg>
-                    <h3>Maquilhagem de Noiva</h3>
-                    <p style="color: #666; margin: 1rem 0;">O look perfeito para o dia mais especial da sua vida, com produtos de longa duração.</p>
-                    <p class="service-price">A partir de 150€</p>
-                </div>
-
-                <div class="service-card">
-                    <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
-                        <path d="M19 3v4"/>
-                        <path d="M21 5h-4"/>
-                    </svg>
-                    <h3>Maquilhagem Social</h3>
-                    <p style="color: #666; margin: 1rem 0;">Para festas, eventos e ocasiões especiais. Elegante e sofisticada.</p>
-                    <p class="service-price">A partir de 80€</p>
-                </div>
-
-                <div class="service-card">
-                    <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-                        <circle cx="9" cy="7" r="4"/>
-                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                    </svg>
-                    <h3>Maquilhagem de Grupo</h3>
-                    <p style="color: #666; margin: 1rem 0;">Para grupos de amigas, madrinhas e familiares. Descontos especiais.</p>
-                    <p class="service-price">Sob consulta</p>
-                </div>
-
-                <div class="service-card">
-                    <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
-                        <line x1="16" x2="16" y1="2" y2="6"/>
-                        <line x1="8" x2="8" y1="2" y2="6"/>
-                        <line x1="3" x2="21" y1="10" y2="10"/>
-                    </svg>
-                    <h3>Outros Eventos</h3>
-                    <p style="color: #666; margin: 1rem 0;">Descreva o que deseja e a ocasião.</p>
-                    <p class="service-price">A partir de 100€</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section Divider -->
-        <div class="section-divider">
-            <div class="divider-content">
-                <div class="divider-line"></div>
-                <svg class="divider-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
-                    <path d="M19 3v4"/>
-                    <path d="M21 5h-4"/>
-                </svg>
-                <div class="divider-line right"></div>
-            </div>
+        <h1>
+          <span class="heart">          ♥
+</span>
+          Nosso Piquenique Romântico
+          <span class="heart">          ♥
+</span>
+        </h1>
+        <p class="subtitle">
+          Escolha o que deseja para nosso momento especial
+        </p>
+        <div class="date-banner">
+          📅 Data: 31 de Dezembro
         </div>
-
-        <!-- Gallery Section -->
-        <section id="galeria" class="container">
-            <div class="section-header">
-                <h2>Galeria</h2>
-                <p class="section-subtitle">
-                    Alguns dos trabalhos realizados com muito carinho e dedicação
-                </p>
-            </div>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/flagged/photo-1551854716-8b811be39e7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmlkYWwlMjBtYWtldXB8ZW58MXx8fHwxNzY0OTg2NjczfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" 
-                         alt="Maquilhagem de noiva">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1679881026334-804402493ce8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBtYWtldXB8ZW58MXx8fHwxNzY1MDAyOTY1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" 
-                         alt="Maquilhagem profissional">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1602260395251-0fe691861b56?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWF1dHklMjBjb3NtZXRpY3N8ZW58MXx8fHwxNzY0OTc4OTk2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" 
-                         alt="Cosméticos de beleza">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1698181842119-a5283dea1440?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWtldXAlMjBhcnRpc3QlMjBiZWF1dHl8ZW58MXx8fHwxNzY0OTQ2MzkwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" 
-                         alt="Trabalho de maquilhagem">
-                </div>
-            </div>
-        </section>
-
-        <!-- Section Divider -->
-        <div class="section-divider">
-            <div class="divider-content">
-                <div class="divider-line"></div>
-                <svg class="divider-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
-                    <path d="M19 3v4"/>
-                    <path d="M21 5h-4"/>
-                </svg>
-                <div class="divider-line right"></div>
-            </div>
+        <div class="menu-section">
+          <h3>
+            🥖 Entradas
+          </h3>
+          <div class="menu-item" onclick="toggleItem(this)">
+            <input type="checkbox" id="queijos" />
+            <label for="queijos">
+              Tábua de Petiscos
+            </label>
+          </div>
+          <div class="menu-item" onclick="toggleItem(this)">
+            <input type="checkbox" id="azeitonas" />
+            <label for="azeitonas">
+              Fruta
+            </label>
+          </div>
+          <div class="menu-item" onclick="toggleItem(this)">
+            <input type="checkbox" id="pao" />
+            <label for="pao">
+              Pao recheado (Feito com amor)
+            </label>
+          </div>
         </div>
-
-        <!-- About Section -->
-        <section id="sobre" class="container bg-gray">
-            <div class="about-grid">
-                <div class="about-content">
-                    <h2>Sobre Mim</h2>
-                    <p style="color: #666;">
-                        Dedico-me a realçar a beleza 
-                        única de cada cliente. Especializada em maquilhagem de noiva e social, utilizo apenas produtos 
-                        de qualidade para garantir resultados impecáveis.
-                    </p>
-                    <p style="color: #666;">
-                        A minha missão é fazer com que se sinta confiante e radiante em cada momento especial da sua vida.
-                    </p>
-                    
-                    <div class="about-features">
-                        <div class="feature-item">
-                            <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="8" r="6"/>
-                                <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
-                            </svg>
-                            <span style="color: #374151;">Compromisso com o Resultado</span>
-                        </div>
-                        <div class="feature-item">
-                            <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10"/>
-                                <polyline points="12 6 12 12 16 14"/>
-                            </svg>
-                            <span style="color: #374151;">Domínio da Técnica</span>
-                        </div>
-                        <div class="feature-item">
-                            <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-                            </svg>
-                            <span style="color: #374151;">Clientes Satisfeitas</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div>
-                    <img src="images/553470353_17861306655495852_6586870076154677869_n.jpg" 
-                         alt="Sobre a maquilhadora" 
-                         class="about-image">
-                </div>
-            </div>
-        </section>
-
-        <!-- Section Divider -->
-        <div class="section-divider">
-            <div class="divider-content">
-                <div class="divider-line"></div>
-                <svg class="divider-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
-                    <path d="M19 3v4"/>
-                    <path d="M21 5h-4"/>
-                </svg>
-                <div class="divider-line right"></div>
-            </div>
+        <div class="menu-section">
+          <h3>
+            🍽️ Pratos Principais
+          </h3>
+          <div class="menu-item" onclick="toggleItem(this)">
+            <input type="checkbox" id="salada" />
+            <label for="salada">
+              Pizza
+            </label>
+          </div>
+          <div class="menu-item" onclick="toggleItem(this)">
+            <input type="checkbox" id="sanduiche" />
+            <label for="sanduiche">
+              Sanduíches Gourmet (AHAHA)
+            </label>
+          </div>
+          <div class="menu-item" onclick="toggleItem(this)">
+            <input type="checkbox" id="quiche" />
+            <label for="quiche">
+              Algo especial a sua escolha
+            </label>
+          </div>
         </div>
-
-        <!-- Contact Section -->
-        <section id="contato" class="container">
-            <div class="section-header">
-                <h2>Contacto</h2>
-                <p class="section-subtitle">
-                    Entre em contacto para fazer um agendamento ou esclarecer dúvidas
-                </p>
-            </div>
-            
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                        </svg>
-                        <div>
-                            <h3>Telefone</h3>
-                            <p style="color: #666;">+351 999 999 999</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect width="20" height="16" x="2" y="4" rx="2"/>
-                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                        </svg>
-                        <div>
-                            <h3>Email</h3>
-                            <p style="color: #666;">contato@alicemakeup.pt</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-                            <circle cx="12" cy="10" r="3"/>
-                        </svg>
-                        <div>
-                            <h3>Localização</h3>
-                            <p style="color: #666;">Braga, Portugal</p>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <h3 style="margin-bottom: 0.75rem;">Redes Sociais</h3>
-                        <div class="social-links">
-                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link">
-                                <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
-                                </svg>
-                            </a>
-                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link">
-                                <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="schedule-card">
-                    <h3 style="margin-bottom: 1rem;">Horário de Atendimento</h3>
-                    <div class="schedule-item">
-                        <span style="color: #666;">Segunda - Sexta</span>
-                        <span>9h - 19h</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span style="color: #666;">Sábado</span>
-                        <span>10h - 18h</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span style="color: #666;">Domingo</span>
-                        <span>Fechado</span>
-                    </div>
-                    <p class="schedule-note">* Atendimento mediante agendamento prévio</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2v6M12 18v4M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M2 12h6M18 12h4M4.93 19.07l4.24-4.24M14.83 9.17l4.24-4.24"/>
-                </svg>
-                <span>Alice MakeUp</span>
-            </div>
-            <p class="footer-text">© 2025 Alice MakeUp. Todos os direitos reservados.</p>
+        <div class="menu-section">
+          <h3>
+            🍰 Sobremesas
+          </h3>
+          <div class="menu-item" onclick="toggleItem(this)">
+            <input type="checkbox" id="morangos" />
+            <label for="morangos">
+              Morangos com Chocolate
+            </label>
+          </div>
+          <div class="menu-item" onclick="toggleItem(this)">
+            <input type="checkbox" id="macarons" />
+            <label for="macarons">
+              Pasteis de Nata (AHAHAh)
+            </label>
+          </div>
+          <div class="menu-item" onclick="toggleItem(this)">
+            <input type="checkbox" id="brownie" />
+            <label for="brownie">
+              Ajuda (AAHHAHAAH)
+            </label>
+          </div>
         </div>
-    </footer>
-
+        <div class="menu-section">
+          <h3>
+            🥂 Bebidas
+          </h3>
+          <div class="menu-item selected" onclick="toggleItem(this)">
+            <input type="checkbox" id="barroyal" checked="" disabled="" />
+            <label for="barroyal">
+              Bar Royal (Obrigatório)
+            </label>
+          </div>
+          <div class="menu-item" onclick="toggleItem(this)">
+            <input type="checkbox" id="suco" />
+            <label for="suco">
+              Sumo Natural
+            </label>
+          </div>
+          <div class="menu-item" onclick="toggleItem(this)">
+            <input type="checkbox" id="limonada" />
+            <label for="limonada">
+              Outra Coisa (Enviar para o seu par a sugestão)
+            </label>
+          </div>
+        </div>
+        <div class="submit-choices">
+          <button onclick="confirmChoices()">
+            Confirmar Escolhas
+          </button>
+        </div>
+        <div id="choicesSummary" class="choices-summary hidden">
+          <h4>
+            Escolhas para o Piquenique:
+          </h4>
+          <ul id="choicesList">
+          </ul>
+        </div>
+        <div id="successMessage" class="success-message hidden">
+          <div class="hearts-animation">
+            💕 ♥ 💖 ♥ 💕
+          </div>
+          <h3>
+            Perfeito!
+          </h3>
+          <p>
+            Mal posso esperar por este momento especial contigo no dia 31 de Dezembro!
+          </p>
+          <p style="margin-top: 15px; font-size: 20px;">
+            ✨ O nosso piquenique vai ser inesquecível! ✨
+          </p>
+        </div>
+      </div>
+    </div>
     <script>
-        function scrollToSection(id) {
-            const element = document.getElementById(id);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
+      // Credenciais corretas
+        const CORRECT_NAME = &#39;ines&#39;;
+        const CORRECT_PASSWORD = &#39;amor-ines&#39;; // Password romântica relacionada com o nome
+
+        // Login form handler
+        document.getElementById(&#39;loginForm&#39;).addEventListener(&#39;submit&#39;, function(e) {
+            e.preventDefault();
+            
+            const nome = document.getElementById(&#39;nome&#39;).value.toLowerCase().trim();
+            const password = document.getElementById(&#39;password&#39;).value.trim();
+            const errorMessage = document.getElementById(&#39;errorMessage&#39;);
+            
+            if (nome === CORRECT_NAME &amp;&amp; password === CORRECT_PASSWORD) {
+                // Login bem-sucedido
+                document.getElementById(&#39;loginPage&#39;).classList.add(&#39;hidden&#39;);
+                document.getElementById(&#39;menuPage&#39;).classList.remove(&#39;hidden&#39;);
+                errorMessage.classList.add(&#39;hidden&#39;);
+            } else {
+                // Login falhou
+                errorMessage.textContent = &#39;💔 Acesso ao meu coração foi negado 💔&#39;;
+                errorMessage.classList.remove(&#39;hidden&#39;);
+            }
+        });
+
+        // Toggle menu item selection
+        function toggleItem(element) {
+            const checkbox = element.querySelector(&#39;input[type=&#34;checkbox&#34;]&#39;);
+            
+            // Não permitir desmarcar o Kir Royal
+            if (checkbox.id === &#39;barroyal&#39;) {
+                return;
+            }
+            
+            checkbox.checked = !checkbox.checked;
+            
+            if (checkbox.checked) {
+                element.classList.add(&#39;selected&#39;);
+            } else {
+                element.classList.remove(&#39;selected&#39;);
+            }
+        }
+
+        // Confirm choices
+        function confirmChoices() {
+            const checkboxes = document.querySelectorAll(&#39;.menu-item input[type=&#34;checkbox&#34;]:checked&#39;);
+            const choices = [];
+            
+            checkboxes.forEach(checkbox =&gt; {
+                const label = checkbox.nextElementSibling;
+                choices.push(label.textContent);
+            });
+            
+            const choicesList = document.getElementById(&#39;choicesList&#39;);
+            choicesList.innerHTML = &#39;&#39;;
+            
+            choices.forEach(choice =&gt; {
+                const li = document.createElement(&#39;li&#39;);
+                li.textContent = choice;
+                choicesList.appendChild(li);
+            });
+            
+            document.getElementById(&#39;choicesSummary&#39;).classList.remove(&#39;hidden&#39;);
+            document.getElementById(&#39;successMessage&#39;).classList.remove(&#39;hidden&#39;);
+            
+            // Criar efeito de confetti de corações
+            createHeartConfetti();
+            
+            // Scroll suave para a mensagem de sucesso
+            setTimeout(() =&gt; {
+                document.getElementById(&#39;successMessage&#39;).scrollIntoView({ 
+                    behavior: &#39;smooth&#39;, 
+                    block: &#39;center&#39; 
+                });
+            }, 100);
+        }
+        
+        // Função para criar confetti de corações
+        function createHeartConfetti() {
+            const hearts = [&#39;💕&#39;, &#39;💖&#39;, &#39;💗&#39;, &#39;💓&#39;, &#39;♥&#39;, &#39;❤️&#39;];
+            const colors = [&#39;#ff6b6b&#39;, &#39;#ee5a6f&#39;, &#39;#ff8787&#39;, &#39;#ff4d4d&#39;, &#39;#c92a2a&#39;];
+            
+            for (let i = 0; i &lt; 30; i++) {
+                setTimeout(() =&gt; {
+                    const heart = document.createElement(&#39;div&#39;);
+                    heart.style.position = &#39;fixed&#39;;
+                    heart.style.left = Math.random() * 100 + &#39;%&#39;;
+                    heart.style.top = &#39;-50px&#39;;
+                    heart.style.fontSize = (Math.random() * 20 + 15) + &#39;px&#39;;
+                    heart.style.zIndex = &#39;9999&#39;;
+                    heart.style.pointerEvents = &#39;none&#39;;
+                    heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                    heart.style.animation = `confettiFall ${Math.random() * 2 + 3}s linear`;
+                    
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() =&gt; {
+                        heart.remove();
+                    }, 5000);
+                }, i * 100);
             }
         }
     </script>
-</body>
+  </body>
 </html>
