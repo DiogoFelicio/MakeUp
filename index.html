@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Acesso ao Coração
-    </title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso ao Coração</title>
     <style>
-      * {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            font-family: &#39;Georgia&#39;, serif;
+            font-family: 'Georgia', serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
@@ -167,7 +165,7 @@
             border-color: #764ba2;
         }
 
-        .menu-item input[type=&#34;checkbox&#34;] {
+        .menu-item input[type="checkbox"] {
             width: 20px;
             height: 20px;
             margin-right: 15px;
@@ -224,7 +222,7 @@
         }
 
         .choices-summary li:before {
-            content: &#34;♥ &#34;;
+            content: "♥ ";
             color: #ff6b6b;
             margin-right: 8px;
         }
@@ -322,281 +320,228 @@
             }
         }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <div class="container">
-      <!-- Login Page -->
-      <div id="loginPage" class="login-page">
-        <h1>
-          <span class="heart">          ♥
-</span>
-          Acesso ao Coração
-          <span class="heart">          ♥
-</span>
-        </h1>
-        <p class="subtitle">
-          Entre com suas credenciais
-        </p>
-        <div id="errorMessage" class="error-message hidden">
+        <!-- Login Page -->
+        <div id="loginPage" class="login-page">
+            <h1><span class="heart">♥</span> Acesso ao Coração <span class="heart">♥</span></h1>
+            <p class="subtitle">Entre com suas credenciais</p>
+            
+            <div id="errorMessage" class="error-message hidden"></div>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" required autocomplete="off">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required autocomplete="off">
+                </div>
+                
+                <button type="submit">Entrar</button>
+            </form>
         </div>
-        <form id="loginForm">
-          <div class="form-group">
-            <label for="nome">
-              Nome
-            </label>
-            <input type="text" id="nome" name="nome" required="" autocomplete="off" />
-          </div>
-          <div class="form-group">
-            <label for="password">
-              Password
-            </label>
-            <input type="password" id="password" name="password" required="" autocomplete="off" />
-          </div>
-          <button type="submit">
-            Entrar
-          </button>
-        </form>
-      </div>
-      <!-- Menu Page -->
-      <div id="menuPage" class="menu-page hidden">
-        <div class="photo-container">
-          <img src="" alt="Foto da Inês" class="profile-photo" />
+
+        <!-- Menu Page -->
+        <div id="menuPage" class="menu-page hidden">
+            <div class="photo-container">
+                <img src="ines.jpg" alt="Foto da Inês" class="profile-photo">
+            </div>
+            
+            <h1><span class="heart">♥</span> Nosso Piquenique Romântico <span class="heart">♥</span></h1>
+            <p class="subtitle">Escolha o que deseja para nosso momento especial</p>
+            
+            <div class="date-banner">
+                📅 Data: 31 de Dezembro
+            </div>
+
+            <div class="menu-section">
+                <h3>🥖 Entradas</h3>
+                <div class="menu-item" onclick="toggleItem(this)">
+                    <input type="checkbox" id="queijos">
+                    <label for="queijos">Tábua de Petiscos</label>
+                </div>
+                <div class="menu-item" onclick="toggleItem(this)">
+                    <input type="checkbox" id="azeitonas">
+                    <label for="azeitonas">Fruta</label>
+                </div>
+                <div class="menu-item" onclick="toggleItem(this)">
+                    <input type="checkbox" id="pao">
+                    <label for="pao">Pao recheado (Feito com amor)</label>
+                </div>
+            </div>
+
+            <div class="menu-section">
+                <h3>🍽️ Pratos Principais</h3>
+                <div class="menu-item" onclick="toggleItem(this)">
+                    <input type="checkbox" id="salada">
+                    <label for="salada">Pizza</label>
+                </div>
+                <div class="menu-item" onclick="toggleItem(this)">
+                    <input type="checkbox" id="sanduiche">
+                    <label for="sanduiche">Sanduíches Gourmet (AHAHA)</label>
+                </div>
+                <div class="menu-item" onclick="toggleItem(this)">
+                    <input type="checkbox" id="quiche">
+                    <label for="quiche">Algo especial a sua escolha</label>
+                </div>
+            </div>
+
+            <div class="menu-section">
+                <h3>🍰 Sobremesas</h3>
+                <div class="menu-item" onclick="toggleItem(this)">
+                    <input type="checkbox" id="morangos">
+                    <label for="morangos">Morangos com Chocolate</label>
+                </div>
+                <div class="menu-item" onclick="toggleItem(this)">
+                    <input type="checkbox" id="macarons">
+                    <label for="macarons">Pasteis de Nata (AHAHAh)</label>
+                </div>
+                <div class="menu-item" onclick="toggleItem(this)">
+                    <input type="checkbox" id="brownie">
+                    <label for="brownie">Ajuda (AAHHAHAAH)</label>
+                </div>
+            </div>
+
+            <div class="menu-section">
+                <h3>🥂 Bebidas</h3>
+                <div class="menu-item selected" onclick="toggleItem(this)">
+                    <input type="checkbox" id="barroyal" checked disabled>
+                    <label for="barroyal">Bar Royal (Obrigatório)</label>
+                </div>
+                <div class="menu-item" onclick="toggleItem(this)">
+                    <input type="checkbox" id="suco">
+                    <label for="suco">Sumo Natural</label>
+                </div>
+                <div class="menu-item" onclick="toggleItem(this)">
+                    <input type="checkbox" id="limonada">
+                    <label for="limonada">Outra Coisa (Enviar para o seu par a sugestão)</label>
+                </div>
+            </div>
+
+            <div class="submit-choices">
+                <button onclick="confirmChoices()">Confirmar Escolhas</button>
+            </div>
+
+            <div id="choicesSummary" class="choices-summary hidden">
+                <h4>Escolhas para o Piquenique:</h4>
+                <ul id="choicesList"></ul>
+            </div>
+
+            <div id="successMessage" class="success-message hidden">
+                <div class="hearts-animation">💕 ♥ 💖 ♥ 💕</div>
+                <h3>Perfeito!</h3>
+                <p>Mal posso esperar por este momento especial contigo no dia 31 de Dezembro!</p>
+                <p style="margin-top: 15px; font-size: 20px;">✨ O nosso piquenique vai ser inesquecível! ✨</p>
+            </div>
         </div>
-        <h1>
-          <span class="heart">          ♥
-</span>
-          Nosso Piquenique Romântico
-          <span class="heart">          ♥
-</span>
-        </h1>
-        <p class="subtitle">
-          Escolha o que deseja para nosso momento especial
-        </p>
-        <div class="date-banner">
-          📅 Data: 31 de Dezembro
-        </div>
-        <div class="menu-section">
-          <h3>
-            🥖 Entradas
-          </h3>
-          <div class="menu-item" onclick="toggleItem(this)">
-            <input type="checkbox" id="queijos" />
-            <label for="queijos">
-              Tábua de Petiscos
-            </label>
-          </div>
-          <div class="menu-item" onclick="toggleItem(this)">
-            <input type="checkbox" id="azeitonas" />
-            <label for="azeitonas">
-              Fruta
-            </label>
-          </div>
-          <div class="menu-item" onclick="toggleItem(this)">
-            <input type="checkbox" id="pao" />
-            <label for="pao">
-              Pao recheado (Feito com amor)
-            </label>
-          </div>
-        </div>
-        <div class="menu-section">
-          <h3>
-            🍽️ Pratos Principais
-          </h3>
-          <div class="menu-item" onclick="toggleItem(this)">
-            <input type="checkbox" id="salada" />
-            <label for="salada">
-              Pizza
-            </label>
-          </div>
-          <div class="menu-item" onclick="toggleItem(this)">
-            <input type="checkbox" id="sanduiche" />
-            <label for="sanduiche">
-              Sanduíches Gourmet (AHAHA)
-            </label>
-          </div>
-          <div class="menu-item" onclick="toggleItem(this)">
-            <input type="checkbox" id="quiche" />
-            <label for="quiche">
-              Algo especial a sua escolha
-            </label>
-          </div>
-        </div>
-        <div class="menu-section">
-          <h3>
-            🍰 Sobremesas
-          </h3>
-          <div class="menu-item" onclick="toggleItem(this)">
-            <input type="checkbox" id="morangos" />
-            <label for="morangos">
-              Morangos com Chocolate
-            </label>
-          </div>
-          <div class="menu-item" onclick="toggleItem(this)">
-            <input type="checkbox" id="macarons" />
-            <label for="macarons">
-              Pasteis de Nata (AHAHAh)
-            </label>
-          </div>
-          <div class="menu-item" onclick="toggleItem(this)">
-            <input type="checkbox" id="brownie" />
-            <label for="brownie">
-              Ajuda (AAHHAHAAH)
-            </label>
-          </div>
-        </div>
-        <div class="menu-section">
-          <h3>
-            🥂 Bebidas
-          </h3>
-          <div class="menu-item selected" onclick="toggleItem(this)">
-            <input type="checkbox" id="barroyal" checked="" disabled="" />
-            <label for="barroyal">
-              Bar Royal (Obrigatório)
-            </label>
-          </div>
-          <div class="menu-item" onclick="toggleItem(this)">
-            <input type="checkbox" id="suco" />
-            <label for="suco">
-              Sumo Natural
-            </label>
-          </div>
-          <div class="menu-item" onclick="toggleItem(this)">
-            <input type="checkbox" id="limonada" />
-            <label for="limonada">
-              Outra Coisa (Enviar para o seu par a sugestão)
-            </label>
-          </div>
-        </div>
-        <div class="submit-choices">
-          <button onclick="confirmChoices()">
-            Confirmar Escolhas
-          </button>
-        </div>
-        <div id="choicesSummary" class="choices-summary hidden">
-          <h4>
-            Escolhas para o Piquenique:
-          </h4>
-          <ul id="choicesList">
-          </ul>
-        </div>
-        <div id="successMessage" class="success-message hidden">
-          <div class="hearts-animation">
-            💕 ♥ 💖 ♥ 💕
-          </div>
-          <h3>
-            Perfeito!
-          </h3>
-          <p>
-            Mal posso esperar por este momento especial contigo no dia 31 de Dezembro!
-          </p>
-          <p style="margin-top: 15px; font-size: 20px;">
-            ✨ O nosso piquenique vai ser inesquecível! ✨
-          </p>
-        </div>
-      </div>
     </div>
+
     <script>
-      // Credenciais corretas
-        const CORRECT_NAME = &#39;ines&#39;;
-        const CORRECT_PASSWORD = &#39;amor-ines&#39;; // Password romântica relacionada com o nome
+        // Credenciais corretas
+        const CORRECT_NAME = 'ines';
+        const CORRECT_PASSWORD = 'amor-ines'; // Password romântica relacionada com o nome
 
         // Login form handler
-        document.getElementById(&#39;loginForm&#39;).addEventListener(&#39;submit&#39;, function(e) {
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const nome = document.getElementById(&#39;nome&#39;).value.toLowerCase().trim();
-            const password = document.getElementById(&#39;password&#39;).value.trim();
-            const errorMessage = document.getElementById(&#39;errorMessage&#39;);
+            const nome = document.getElementById('nome').value.toLowerCase().trim();
+            const password = document.getElementById('password').value.trim();
+            const errorMessage = document.getElementById('errorMessage');
             
-            if (nome === CORRECT_NAME &amp;&amp; password === CORRECT_PASSWORD) {
+            if (nome === CORRECT_NAME && password === CORRECT_PASSWORD) {
                 // Login bem-sucedido
-                document.getElementById(&#39;loginPage&#39;).classList.add(&#39;hidden&#39;);
-                document.getElementById(&#39;menuPage&#39;).classList.remove(&#39;hidden&#39;);
-                errorMessage.classList.add(&#39;hidden&#39;);
+                document.getElementById('loginPage').classList.add('hidden');
+                document.getElementById('menuPage').classList.remove('hidden');
+                errorMessage.classList.add('hidden');
             } else {
                 // Login falhou
-                errorMessage.textContent = &#39;💔 Acesso ao meu coração foi negado 💔&#39;;
-                errorMessage.classList.remove(&#39;hidden&#39;);
+                errorMessage.textContent = '💔 Acesso ao meu coração foi negado 💔';
+                errorMessage.classList.remove('hidden');
             }
         });
 
         // Toggle menu item selection
         function toggleItem(element) {
-            const checkbox = element.querySelector(&#39;input[type=&#34;checkbox&#34;]&#39;);
+            const checkbox = element.querySelector('input[type="checkbox"]');
             
             // Não permitir desmarcar o Kir Royal
-            if (checkbox.id === &#39;barroyal&#39;) {
+            if (checkbox.id === 'barroyal') {
                 return;
             }
             
             checkbox.checked = !checkbox.checked;
             
             if (checkbox.checked) {
-                element.classList.add(&#39;selected&#39;);
+                element.classList.add('selected');
             } else {
-                element.classList.remove(&#39;selected&#39;);
+                element.classList.remove('selected');
             }
         }
 
         // Confirm choices
         function confirmChoices() {
-            const checkboxes = document.querySelectorAll(&#39;.menu-item input[type=&#34;checkbox&#34;]:checked&#39;);
+            const checkboxes = document.querySelectorAll('.menu-item input[type="checkbox"]:checked');
             const choices = [];
             
-            checkboxes.forEach(checkbox =&gt; {
+            checkboxes.forEach(checkbox => {
                 const label = checkbox.nextElementSibling;
                 choices.push(label.textContent);
             });
             
-            const choicesList = document.getElementById(&#39;choicesList&#39;);
-            choicesList.innerHTML = &#39;&#39;;
+            const choicesList = document.getElementById('choicesList');
+            choicesList.innerHTML = '';
             
-            choices.forEach(choice =&gt; {
-                const li = document.createElement(&#39;li&#39;);
+            choices.forEach(choice => {
+                const li = document.createElement('li');
                 li.textContent = choice;
                 choicesList.appendChild(li);
             });
             
-            document.getElementById(&#39;choicesSummary&#39;).classList.remove(&#39;hidden&#39;);
-            document.getElementById(&#39;successMessage&#39;).classList.remove(&#39;hidden&#39;);
+            document.getElementById('choicesSummary').classList.remove('hidden');
+            document.getElementById('successMessage').classList.remove('hidden');
             
             // Criar efeito de confetti de corações
             createHeartConfetti();
             
             // Scroll suave para a mensagem de sucesso
-            setTimeout(() =&gt; {
-                document.getElementById(&#39;successMessage&#39;).scrollIntoView({ 
-                    behavior: &#39;smooth&#39;, 
-                    block: &#39;center&#39; 
+            setTimeout(() => {
+                document.getElementById('successMessage').scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
                 });
             }, 100);
         }
         
         // Função para criar confetti de corações
         function createHeartConfetti() {
-            const hearts = [&#39;💕&#39;, &#39;💖&#39;, &#39;💗&#39;, &#39;💓&#39;, &#39;♥&#39;, &#39;❤️&#39;];
-            const colors = [&#39;#ff6b6b&#39;, &#39;#ee5a6f&#39;, &#39;#ff8787&#39;, &#39;#ff4d4d&#39;, &#39;#c92a2a&#39;];
+            const hearts = ['💕', '💖', '💗', '💓', '♥', '❤️'];
+            const colors = ['#ff6b6b', '#ee5a6f', '#ff8787', '#ff4d4d', '#c92a2a'];
             
-            for (let i = 0; i &lt; 30; i++) {
-                setTimeout(() =&gt; {
-                    const heart = document.createElement(&#39;div&#39;);
-                    heart.style.position = &#39;fixed&#39;;
-                    heart.style.left = Math.random() * 100 + &#39;%&#39;;
-                    heart.style.top = &#39;-50px&#39;;
-                    heart.style.fontSize = (Math.random() * 20 + 15) + &#39;px&#39;;
-                    heart.style.zIndex = &#39;9999&#39;;
-                    heart.style.pointerEvents = &#39;none&#39;;
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.style.position = 'fixed';
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.top = '-50px';
+                    heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                    heart.style.zIndex = '9999';
+                    heart.style.pointerEvents = 'none';
                     heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
                     heart.style.animation = `confettiFall ${Math.random() * 2 + 3}s linear`;
                     
                     document.body.appendChild(heart);
                     
-                    setTimeout(() =&gt; {
+                    setTimeout(() => {
                         heart.remove();
                     }, 5000);
                 }, i * 100);
             }
         }
     </script>
-  </body>
+</body>
 </html>
